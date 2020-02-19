@@ -1,0 +1,65 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+.bg-white{
+    max-width: 100%;
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #444;
+    padding: 40px;
+    background: rgba(255, 255, 255, .8);
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 24px;
+}
+.dialog {
+    border: solid 1px #ccc;
+    margin: 10px auto;
+    padding: 20px 30px;
+    display: inline-block;
+    box-shadow: 0 0 4px #ccc;
+    background-color: #FAF8F8;
+    overflow: hidden;
+    position: relative;
+    max-width: 450px;
+}
+.verifikasi-box{ 
+    max-width: 100%;
+    width: 450px;
+    margin: 0px 0px 0px 0px;
+    height: auto;
+}
+.coba {
+    text-align: center;
+    line-height: 40px;
+    font-size: 50px;
+    border: solid 1px #ccc;
+    box-shadow: 0 0 5px #ccc inset;
+    outline: none;
+    transition: all .2s ease-in-out;
+    border-radius: 3px;
+    width: 23%;
+}
+.verifikasi-box button{
+    margin:  30px 0 50px;
+    width: 100%;
+    padding: 6px;
+}
+.resend-box {
+    max-width: 100%;
+    width: 450px;
+    overflow: hidden;
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+}
+.resend-box input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+    float: left;                 
+}

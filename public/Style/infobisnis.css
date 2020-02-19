@@ -1,0 +1,42 @@
+.bg-white{
+    max-width: 100%;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #444;
+    padding: 40px;
+    background: rgba(255, 255, 255, .8);
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 24px;
+}
+.info-box{
+    top: 50%;
+    left: 50%;
+    color: #444;
+    padding: 12px;
+    border-radius: 24px;
+}
+.textbox {
+    width: 100%;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border: 2px black;
+}
+.textbox input {
+    padding: 0px 10px 0px 10px;
+    height: 40px;
+    border-radius: .25rem;
+    font-size: 18px;
+    width: 100%;
+}
+select{
+    padding: 0px 0px 0px 10px;
+    height: 40px;
+    border-radius: .25rem;
+    font-size: 18px;
+    width: 100%;
+}

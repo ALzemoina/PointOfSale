@@ -1,0 +1,25 @@
+.bg-white{
+    max-width: 100%;
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #444;
+    padding: 40px;
+    background: rgba(255, 255, 255, .8);
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 24px;
+}
+.gambar{
+    border: solid 1px #ccc;
+    margin: 10px auto;
+    padding: 20px;
+    display: inline-block;
+    box-shadow: 0 0 4px #ccc;
+    background-color: #FAF8F8;
+    overflow: hidden;
+    position: relative;
+    max-width: 450px;
+}

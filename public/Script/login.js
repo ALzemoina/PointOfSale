@@ -11,11 +11,11 @@ var firebaseConfig = {
     firebase.initializeApp(firebaseConfig);
     var db = firebase.firestore();
 
-document.getElementById("btn-login").addEventListener("click", () => {
-    const email = document.getElementById("emailField").value;
-    const password = document.getElementById("passField").value;
+    document.getElementById("btn-login").addEventListener("click", () => {
+      const email = document.getElementById("emailField").value;
+      const password = document.getElementById("passField").value;
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
+      firebase.auth().signInWithEmailAndPassword(email, password)
         .then(({ user }) => {
           db.collection('user').where('uid', '==', user.uid).get().then(snapshot => {
             if (snapshot.size <= 0) {
@@ -41,5 +41,4 @@ document.getElementById("btn-login").addEventListener("click", () => {
           // ...
         });
       location.reload;
-
-})
+    })

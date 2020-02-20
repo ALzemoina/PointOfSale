@@ -6,25 +6,61 @@
     <title>Document</title>
     <link rel="stylesheet" href="Style/bootstrap4.css">
     <link rel="stylesheet" href="Style/produk.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+    <script src="Script/inti.js"></script>
+    <script src="Script/router.js"></script>
 </head>
 <body>
     <div class="bg-white">
+        <div class="w3-sidebar w3-bar-block" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-button w3-large" id="close">&times;</button>
+            <div class="text-center" id="profile">
+                <img src="Image/035-male.png" alt="" width="40%" height="40%">
+                <h4 id="hello-master" style="color: white; margin: 10px 0px 0px 0px;"></h4>
+            </div>
+            <div id="list">
+            <a href="dashboard.html" class="btn w3-bar-item w3-button">Dashboard</a>
+            <a href="produk.html" class="btn active w3-bar-item w3-button">Produk</a>
+            <a href="#" class="btn w3-bar-item w3-button">Karyawan</a>
+            <a href="#" class="btn w3-bar-item w3-button">Penyimpanan</a>
+            <a href="#" class="btn w3-bar-item w3-button">Laporan</a>
+            <button id="btn-logout" class="text-left">
+              <img id="icon" src="Image/logout.svg" style="width: 10%; height: 100%;">Logout</button>
+            </div>
+            <script>
+                document.getElementById("btn-logout").addEventListener("click", () => {
+                  firebase.auth().signOut().then(function () {
+                    // Sign-out successful.
+                    alert("Terima kasih telah mengunjungi kami")
+                    console.log("berhasil logout")
+                  }).catch(function (error) {
+                    // An error happened.
+                    console.log("gagal logout")
+                  });
+                }) 
+            </script>
+        </div>
         <div class="navigasi">
             <ul>
-                <li><a class="menu" href="#"><i class="fa fa-bars"></i></a></li>
+                <li><button id="menu" class="w3-button" onclick="w3_open()"><i class="fa fa-bars"></i></button></li>
                 <li><a href="#"><i class="fa fa-envelope"></i></a></li>
                 <li><a href="#"><i class="fa fa-bell"></i></a></li>
                 <li><a href="#"><i class="fa fa-search"></i></a></li>
             </ul>
         </div>
-        <div class="pengatur">
-            <div class="container container-sm" style="margin-bottom: 15px;">
+        <div class="pengatur2">
+            <div class="container container-sm">
                 <div class="row">
                 <div class="col-6">
                     <h2>Produk</h2>
                 </div>
-                <div class="col-6 text-right">
-                    <input type="button" class="btn btn-dark" value="Update">
+                <div class="col-6 text-right" style="margin: 10px 0px;">
+                    <a href="produk2.html"><input type="button" class="btn btn-dark" value="Tambah Barang"></a>
                 </div>
               </div>
             </div>
@@ -80,5 +116,31 @@
         </div>
         </div>
     </div>
+    <script>
+        function w3_open() {
+        document.getElementById("mySidebar").style.width = "85%";
+        document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+    <script type="text/javascript">
+        firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+            let level = localStorage.getItem("level");
+    
+            if (level != "master") {
+              routeBasedOnLevel(level)
+            }
+    
+            console.log(user)
+            document.getElementById("hello-master").innerHTML = user.displayNama;
+          } else {
+            location.replace("index.html");
+          }
+        });
+      </script>
 </body>
 </html>

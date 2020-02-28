@@ -6,12 +6,49 @@
     <title>Document</title>
     <link rel="stylesheet" href="Style/bootstrap4.css">
     <link rel="stylesheet" href="Style/inventori.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+    <script src="Script/inti.js"></script>
+    <script src="Script/router.js"></script>
 </head>
 <body>
     <div class="bg-white">
+        <div class="w3-sidebar w3-bar-block" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-button w3-large" id="close">&times;</button>
+            <div class="text-center" id="profile">
+                <img src="Image/035-male.png" alt="" width="40%" height="40%">
+                <h4 id="hello-master" style="color: white; margin: 10px 0px 0px 0px;"></h4>
+            </div>
+            <div id="list">
+            <a href="dashboard.html" class="btn w3-bar-item w3-button">Dashboard</a>
+            <a href="produk.html" class="btn w3-bar-item w3-button">Produk</a>
+            <a href="karyawan.html" class="btn w3-bar-item w3-button">Karyawan</a>
+            <a href="inventori.html" class="btn active w3-bar-item w3-button">Penyimpanan</a>
+            <a href="#" class="btn w3-bar-item w3-button">Laporan</a>
+            <button id="btn-logout" class="text-left">
+              <img id="icon" src="Image/logout.svg" style="width: 10%; height: 100%;">Logout</button>
+            </div>
+            <script>
+                document.getElementById("btn-logout").addEventListener("click", () => {
+                  firebase.auth().signOut().then(function () {
+                    // Sign-out successful.
+                    alert("Terima kasih telah mengunjungi kami")
+                    console.log("berhasil logout")
+                  }).catch(function (error) {
+                    // An error happened.
+                    console.log("gagal logout")
+                  });
+                }) 
+            </script>
+        </div>
         <div class="navigasi">
             <ul>
-                <li><a class="menu" href="#"><i class="fa fa-bars"></i></a></li>
+                <li><button id="menu" class="w3-button" onclick="w3_open()"><i class="fa fa-bars"></i></button></li>
                 <li><a href="#"><i class="fa fa-envelope"></i></a></li>
                 <li><a href="#"><i class="fa fa-bell"></i></a></li>
                 <li><a href="#"><i class="fa fa-search"></i></a></li>
@@ -26,58 +63,27 @@
               </div>
             </div>
             <div class="card">
-                <div class="container container-sm">
-                    <h5 style="margin-bottom: 1rem;">Daftar Barang</h5>
-                    <div class="row">
-                        <div class="col-6">
-                            <span>Meja</span>
-                        </div>
-                        <div class="col-3">
-                            <span>5</span>
-                        </div>
-                        <div class="col-3"> 
-                            <input type="button" class="btn btn-outline-dark" value="Ubah" style="font-size: 10px;">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <span>Kursi</span>
-                        </div>
-                        <div class="col-3">
-                            <span>10</span>
-                        </div>
-                        <div class="col-3"> 
-                            <input type="button" class="btn btn-outline-dark" value="Ubah" style="font-size: 10px;">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <span>Rak Barang</span>
-                        </div>
-                        <div class="col-3">
-                            <span>2</span>
-                        </div>
-                        <div class="col-3"> 
-                            <input type="button" class="btn btn-outline-dark" value="Ubah" style="font-size: 10px;">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <span>CCTV</span>
-                        </div>
-                        <div class="col-3">
-                            <span>4</span>
-                        </div>
-                        <div class="col-3"> 
-                            <input type="button" class="btn btn-outline-dark" value="Ubah" style="font-size: 10px;">
-                        </div>
-                    </div>
-                    <div class="col-12 text-right"> 
-                        <input type="button" class="btn btn-outline-dark" value="Tambah Barang" style="font-size: 12px;">
-                    </div>
-                </div>
+                <table class="table">
+                    <thead>
+                        <th scope="col">Nama Barang</th>
+                        <th scope="col">Jumlah</th>
+                    </thead>
+                    <tbody id="table-body">
+
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div>
+        </div>
+        <script>
+            function w3_open() {
+            document.getElementById("mySidebar").style.width = "85%";
+            document.getElementById("mySidebar").style.display = "block";
+            }
+    
+            function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            }
+        </script>        
 </body>
 </html>

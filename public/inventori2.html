@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="Style/bootstrap4.css">
-    <link rel="stylesheet" href="Style/karyawan.css">
+    <link rel="stylesheet" href="Style/inventori2.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -15,6 +15,19 @@
     <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
     <script src="Script/inti.js"></script>
     <script src="Script/router.js"></script>
+    <script src="Script/inventori2.js"></script>
+
+     <!-- BOOTSTRAP 4 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../src/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+    <script src="../src/jquery.bootstrap-touchspin.js"></script>
 </head>
 <body>
     <div class="bg-white">
@@ -25,11 +38,11 @@
                 <h4 id="hello-master" style="color: white; margin: 10px 0px 0px 0px;"></h4>
             </div>
             <div id="list">
-            <a href="dashboard.html" class="btn w3-bar-item w3-button">Dashboard</a>
-            <a href="produk.html" class="btn w3-bar-item w3-button">Produk</a>
-            <a href="karyawan.html" class="btn active w3-bar-item w3-button">Karyawan</a>
-            <a href="inventori.html" class="btn w3-bar-item w3-button">Penyimpanan</a>
-            <a href="#" class="btn w3-bar-item w3-button">Laporan</a>
+            <a href="dashboard.html" class="btn w3-bar-item w3-button" style="background-color: #333333 !important;">Dashboard</a>
+            <a href="produk.html" class="btn w3-bar-item w3-button"style="background-color: #333333 !important;">Produk</a>
+            <a href="karyawan.html" class="btn w3-bar-item w3-button"style="background-color: #333333 !important;">Karyawan</a>
+            <a href="inventori.html" class="btn active w3-bar-item w3-button"style="background-color: #333333 !important;">Penyimpanan</a>
+            <a href="#" class="btn w3-bar-item w3-button"style="background-color: #333333 !important;">Laporan</a>
             <button id="btn-logout" class="text-left">
               <img id="icon" src="Image/logout.svg" style="width: 10%; height: 100%;">Logout</button>
             </div>
@@ -55,61 +68,46 @@
             </ul>
         </div>
         <div class="pengatur">
-            <div class="container container-sm" style="margin-bottom: 10px;">
-                <div class="row">
-                <div class="col-6">
-                    <h2>Karyawan</h2>
+            <h2 style="margin: 0px 0px 10px 0px !important;">Tambah Barang</h2>
+        <div class="card">
+        <form class="form-horizontal" role="form">
+            <div class="col-12 form-group" style="margin: 0 !important; padding: 0 !important;">
+            <div class="row">
+                <div class="col-7">
+                <input type="text" 
+                    style="line-height: 2; width: 100%; border-radius: .25rem; padding-left: .50rem; padding-right: .50rem;"
+                    placeholder="Nama Barang"
+                    id="inv-barang">
                 </div>
-                <div class="col-6 text-right">
-                    <a href="karyawan2.html"><input type="button" class="btn btn-dark" value="Update"></a>
+                <div class="col-5 text-right" id="hilang">
+                <input id="demo2" type="text" value="0" name="demo2" class="form-control">
                 </div>
-              </div>
             </div>
-        <div class="card">
-            <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <td rowspan="4"><img src="Image/035-male.png" width="100%"></td>
-                    <td width="190" style="padding-left: 10px; font-size: 14px;"><strong>Rifky Alif</strong></td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Manager</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">086213553921</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Randu Agung, Singosari</td>
-                </tr>
-            </table>
+                <input type="button" class="btn btn-dark btn-block" value="Submit" id="submit-brg" style="margin-top: 15px;">
+            </div>
+        </form>
+        <script>
+            $("input[name='demo2']").TouchSpin({
+                min: 0,
+                max: 99,
+                stepinterval: 50,
+                maxboostedstep: 99,
+            });
+        </script>
         </div>
-        <div class="card">
-            <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <td rowspan="4"><img src="Image/047-female.png" width="100%"></td>
-                    <td width="190" style="padding-left: 10px; font-size: 14px;"><strong>Wulandari</strong></td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Kasir</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">087923542998</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Tumapel, Singosari</td>
-                </tr>
-            </table>
-        </div>
-        </div>
+    </div>    
     </div>
     <script>
         function w3_open() {
         document.getElementById("mySidebar").style.width = "85%";
         document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("hilang").style.display = "none";
         }
 
         function w3_close() {
         document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("hilang").style.display = "flex";
         }
-    </script>
+    </script> 
 </body>
 </html>

@@ -1,1 +1,102 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+.bg-white{
+    max-width: 100%;
+    width: 360px;
+    height: 740px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #444444;
+    background: rgba(255, 255, 255, .8);
+    box-sizing: border-box;
+    /*box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 24px;*/
+}
+.pengatur{
+    top: 50%;
+    left: 50%;
+    color: #444;
+    padding: 20px 20px 0px 20px;
+    border-radius: 24px; 
+    width: auto;  
+}
+.navigasi{
+    margin-top: 0px;
+    width: 100%;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    height: 30px;
+}
+li a{
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 2px 15px;
+    text-decoration: none;
+}  
+li a:hover {
+    background-color: #111;
+}
+#menu{
+    float: left;
+    padding: 2px 20px;
+    background-color: #333;
+    border: none;
+}
+.card{
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 320px auto;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 12px;
+}
+i{
+    color: white;
+    width: 15px;
+}
+.w3-button{
+    height: 30px;
+}
+#mySidebar{
+    background-color: #333333;
+}
+#close{
+    color: white;
+    text-align: right !important;
+    font-size: 24px !important;
+    padding: 0px 16px !important;
+}
+.w3-sidebar a{
+    color: white;
+}
+#profile{
+    padding: 15px 10px;
+}
+.active{
+    font-weight: bold;
+}
+.w3-sidebar button{
+    border: none;
+    background-color: #333;
+    font-size: 18px !important;
+    padding: 8px 16px !important;
+    color: white;
+}
+#list a{
+    height: 40px;
+    font-size: 18px;
+}
+#icon{
+    margin-right: 10px;
+}
+#btn-logout{
+    padding: 16px !important;
+}

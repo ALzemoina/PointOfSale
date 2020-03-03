@@ -1,5 +1,4 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-
 .bg-white{
     max-width: 100%;
     width: 360px;
@@ -14,17 +13,24 @@
     /*box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
     border-radius: 24px;*/
 }
+.navigasi{
+    margin-top: 0px;
+    width: 100%;
+}
 .pengatur{
     top: 50%;
     left: 50%;
     color: #444;
     padding: 20px 20px 0px 20px;
     border-radius: 24px; 
-    width: auto;  
+    width: auto;   
 }
-.navigasi{
-    margin-top: 0px;
-    width: 100%;
+.card{
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 320px auto;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    border-radius: 12px;
 }
 ul{
     list-style-type: none;
@@ -50,13 +56,6 @@ li a:hover {
     padding: 2px 20px;
     background-color: #333;
     border: none;
-}
-.card{
-    margin-bottom: 15px;
-    padding: 15px;
-    width: 320px auto;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
-    border-radius: 12px;
 }
 i{
     color: white;
@@ -99,4 +98,16 @@ i{
 }
 #btn-logout{
     padding: 16px !important;
+}
+.textbox input {
+    padding: 0px 10px 0px 10px;
+    height: 40px;
+    border-radius: .25rem;
+    font-size: 14px;
+    width: 100%;
+}
+.textbox {
+    width: 100%;
+    font-size: 20px;
+    padding: 8px 0;
 }

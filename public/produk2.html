@@ -72,9 +72,10 @@
             </div>
             <div class="textbox">
                 <label for="exampleFormControlFile1">Gambar</label>
-                <input type="file" accept="image/*" id="gambarProd" class="form-control-file" style="padding: 0px !important;">
+                <input type="file" accept="image/*" id="gambarProd" class="form-control-file" 
+                style="padding: 0px !important;">
             </div>
-            <input type="submit" value="submit"/>
+            <input type="submit" value="submit" onclick="submitForm()">
         </div>
         </form>
         </div>
@@ -93,9 +94,7 @@
         var db = firebase.firestore();
         const storage = firebase.storage()
 
-            function submitForm(e) {
-              e.preventDefault();
-
+            function submitForm() {
 
               console.log("uploading")
 
@@ -120,7 +119,7 @@
             }
     </script>
     <script type="text/javascript">
-      firebase.auth().onAuthStateChanged(user => {
+      /*firebase.auth().onAuthStateChanged(user => {
         if (user) {
           let level = localStorage.getItem("level");
   
@@ -133,7 +132,7 @@
         } else {
           location.replace("index.html");
         }
-      });
+      });*/
       </script>    
 </body>
 </html>

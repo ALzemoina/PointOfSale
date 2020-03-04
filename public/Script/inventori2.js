@@ -21,7 +21,8 @@ firebase.auth().onAuthStateChanged(user => {
                     routeBasedOnLevel(level)
                 }
                 console.log(user)
-                document.getElementById("hello-master").innerHTML = user.displayNama;
+                
+                document.getElementById("hello-master").innerHTML = user.Nama;
 
                 let db = firebase.firestore();
 
@@ -36,11 +37,11 @@ firebase.auth().onAuthStateChanged(user => {
 
 
                         let tdNama = document.createElement("td")
-                        tdNama.appendChild(document.createTextNode(data["inv-barang"]))
+                        tdNama.appendChild(document.createTextNode(data["Barang"]))
                         tr.appendChild(tdNama)
 
                         let tdPoint = document.createElement("td")
-                        tdPoint.appendChild(document.createTextNode(data["demo2"]))
+                        tdPoint.appendChild(document.createTextNode(data["Jumlah"]))
                         tr.appendChild(tdPoint)
 
                         document.getElementById("table-body").appendChild(tr)

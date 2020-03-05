@@ -26,8 +26,8 @@
         </div>
         <div id="list">
         <a href="dashboard.html" class="btn w3-bar-item w3-button">Dashboard</a>
-        <a href="produk.html" class="btn active w3-bar-item w3-button">Produk</a>
-        <a href="karyawan.html" class="btn w3-bar-item w3-button">Karyawan</a>
+        <a href="produk.html" class="btn w3-bar-item w3-button">Produk</a>
+        <a href="karyawan.html" class="btn active w3-bar-item w3-button">Karyawan</a>
         <a href="inventori.html" class="btn w3-bar-item w3-button">Penyimpanan</a>
         <a href="#" class="btn w3-bar-item w3-button">Laporan</a>
         <button id="btn-logout" class="text-left">
@@ -117,7 +117,7 @@
       }
 </script>
 <script type="text/javascript">
-  /*firebase.auth().onAuthStateChanged(user => {
+  firebase.auth().onAuthStateChanged(user => {
     if (user) {
       let level = localStorage.getItem("level");
 
@@ -126,11 +126,12 @@
       }
 
       console.log(user)
-      document.getElementById("hello-master").innerHTML = user.displayNama;
+      document.getElementById("hello-master").innerHTML = user.displayName;
     } else {
       location.replace("index.html");
     }
-  });*/
-  </script>   
+  });
+  </script>
+     
 </body>
 </html>

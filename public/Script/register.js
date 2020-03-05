@@ -30,7 +30,7 @@ var firebaseConfig = {
           })
   
           user.updateProfile({
-            displayNama: nama
+            displayName: nama
           })
   
           alert("berhasil daftar");

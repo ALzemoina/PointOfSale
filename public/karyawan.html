@@ -60,7 +60,7 @@
                 <div class="col-6">
                     <h2>Karyawan</h2>
                 </div>
-                <div class="col-6 text-right">
+                <div class="col-6 text-right" style="margin: 10px 0px;">
                     <a href="karyawan2.html"><input type="button" class="btn btn-dark" value="Update"></a>
                 </div>
               </div>
@@ -111,5 +111,22 @@
         document.getElementById("mySidebar").style.display = "none";
         }
     </script>
+    <script type="text/javascript">
+        firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+            let level = localStorage.getItem("level");
+      
+            if (level != "master") {
+              routeBasedOnLevel(level)
+            }
+      
+            console.log(user)
+            document.getElementById("hello-master").innerHTML = user.displayName;
+          } else {
+            location.replace("index.html");
+          }
+        });
+        </script>
+        
 </body>
 </html>

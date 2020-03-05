@@ -119,7 +119,7 @@
             }
     </script>
     <script type="text/javascript">
-      /*firebase.auth().onAuthStateChanged(user => {
+      firebase.auth().onAuthStateChanged(user => {
         if (user) {
           let level = localStorage.getItem("level");
   
@@ -128,11 +128,12 @@
           }
     
           console.log(user)
-          document.getElementById("hello-master").innerHTML = user.displayNama;
+          document.getElementById("hello-master").innerHTML = user.displayName;
         } else {
           location.replace("index.html");
         }
-      });*/
-      </script>    
+      });
+      </script>
+      
 </body>
 </html>

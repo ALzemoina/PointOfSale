@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(user => {
                 }
                 console.log(user)
                 
-                document.getElementById("hello-master").innerHTML = user.Nama;
+                document.getElementById("hello-master").innerHTML = user.displayName;
 
                 let db = firebase.firestore();
 
@@ -31,10 +31,7 @@ firebase.auth().onAuthStateChanged(user => {
                     snapshots.forEach(s => {
                         let data = s.data()
 
-                        console.log(data["Barang"])
-
                         let tr = document.createElement("tr");
-
 
                         let tdNama = document.createElement("td")
                         tdNama.appendChild(document.createTextNode(data["Barang"]))

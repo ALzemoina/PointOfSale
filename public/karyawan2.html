@@ -111,8 +111,10 @@
       .then(doc => {
           storage.ref("images/" + doc.id + ".jpg")
             .put(filefoto)
-            .then(() => alert("image berhasil di upload")).catch(console.log)
-          location.reload();
+            .then(() => {
+              alert("image berhasil di upload");
+              location.reload();
+            }).catch(console.log)
         })
       }
 </script>

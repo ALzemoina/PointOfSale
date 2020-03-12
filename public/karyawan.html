@@ -54,7 +54,7 @@
                 <li><a href="#"><i class="fa fa-search"></i></a></li>
             </ul>
         </div>
-        <div class="pengatur">
+        <div class="pengatur" id="try">
             <div class="container container-sm" style="margin-bottom: 10px;">
                 <div class="row">
                 <div class="col-6">
@@ -65,40 +65,13 @@
                 </div>
               </div>
             </div>
-        <div class="card">
-            <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <td rowspan="4"><img src="Image/035-male.png" width="100%"></td>
-                    <td width="190" style="padding-left: 10px; font-size: 14px;"><strong>Rifky Alif</strong></td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Manager</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">086213553921</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Randu Agung, Singosari</td>
-                </tr>
+        <!-- <div class="card">
+            <table class="table">
+                <tbody id="table-body">
+
+                </tbody>
             </table>
-        </div>
-        <div class="card">
-            <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <td rowspan="4"><img src="Image/047-female.png" width="100%"></td>
-                    <td width="190" style="padding-left: 10px; font-size: 14px;"><strong>Wulandari</strong></td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Kasir</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">087923542998</td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 10px; font-size: 14px;">Tumapel, Singosari</td>
-                </tr>
-            </table>
-        </div>
+        </div> -->
         </div>
     </div>
     <script>
@@ -112,19 +85,95 @@
         }
     </script>
     <script type="text/javascript">
-        firebase.auth().onAuthStateChanged(user => {
-          if (user) {
-            let level = localStorage.getItem("level");
-      
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+        let level = localStorage.getItem("level");
             if (level != "master") {
-              routeBasedOnLevel(level)
+                    // console.log(level)
+                    routeBasedOnLevel(level)
+                }
+                console.log(user)
+                
+                document.getElementById("hello-master").innerHTML = user.displayName;
+
+                let db = firebase.firestore();
+
+                db.collection("karyawan").orderBy("Nama").get().then(snapshots => {
+
+                    snapshots.forEach(s => {
+                        let data = s.data()
+
+                        let div = document.createElement("div");
+                        div.className = "card";
+                        let tbl = document.createElement("table");
+                        tbl.className = "table";
+                        let tblbd = document.createElement("tbody");
+                        let tr = document.createElement("tr");
+                        let tr1 = document.createElement("tr");
+                        let tr2 = document.createElement("tr");
+                        let tr3 = document.createElement("tr");
+                                                
+                        let tdgmbr = document.createElement("td")
+                        tdgmbr.className = "gmbr";
+                        let img = document.createElement("img")
+                        img.id = "myimg"
+                        tdgmbr.appendChild(img)
+                        tr.appendChild(tdgmbr)
+                        
+                        let tdNama = document.createElement("td")
+                        tdNama.appendChild(document.createTextNode(data["Nama"]))
+                        tr.appendChild(tdNama)
+
+                        let tdLevel = document.createElement("td")
+                        tdLevel.appendChild(document.createTextNode(data["level"]))
+                        tr1.appendChild(tdLevel)
+
+                        let tdHP = document.createElement("td")
+                        tdHP.appendChild(document.createTextNode(data["Phone"]))
+                        tr2.appendChild(tdHP)
+
+                        let tdAddres = document.createElement("td")
+                        tdAddres.appendChild(document.createTextNode(data["Alamat"]))
+                        tr3.appendChild(tdAddres)
+
+                        div.appendChild(tbl)
+                        tbl.appendChild(tblbd)
+                        tblbd.appendChild(tr)
+                        tblbd.appendChild(tr1)
+                        tblbd.appendChild(tr2)
+                        tblbd.appendChild(tr3)
+                        document.getElementById("try").appendChild(div)
+
+                        // var spaceRef = storageRef.child('images/*');
+                        // spaceRef.getDownloadURL().then(function(url) {
+                        // var test = url;
+                        // alert(url);
+                        // document.querySelector('img').src = test;
+
+                        // }).catch(function(error) {
+
+                        // });
+                        // Create a reference with an initial file path and name\
+                        var storage = firebase.storage();
+                        var storageRef = storage.ref();
+
+                        storageRef.child("images/9NAwxpWYnqADP9v9t3zJ.jpg").getDownloadURL().then(function(url) {
+
+                            console.log(url)
+                            
+                            var image = document.getElementById('myimg');
+                            image.src = url;
+                            
+                            }).catch(function(error) {
+                                console.log(error)
+                            });
+
+                    })
+                })
+            } else {
+                location.replace("index.html");
             }
-      
-            console.log(user)
-            document.getElementById("hello-master").innerHTML = user.displayName;
-          } else {
-            location.replace("index.html");
-          }
+
         });
         </script>
         
